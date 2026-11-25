@@ -1,0 +1,91 @@
+{
+  "bakkesmod/plugin/bakkesmodplugin.h": [
+    "BAKKESMOD_PLUGIN",
+    "onLoad",
+    "onUnload",
+    "cvarManager",
+    "gameWrapper"
+  ],
+  "bakkesmod/plugin/bakkesmodsdk.h": [
+    "BAKKESMOD_PLUGIN_API_VERSION",
+    "PLUGINTYPE_FREEPLAY",
+    "PERMISSION_FREEPLAY",
+    "PERMISSION_ALL"
+  ],
+  "bakkesmod/plugin/PluginSettingsWindow.h": [
+    "RenderSettings",
+    "GetPluginName",
+    "SetImGuiContext"
+  ],
+  "bakkesmod/wrappers/GameWrapper.h": [
+    "IsInFreeplay",
+    "IsInOnlineGame",
+    "IsInCustomTraining",
+    "IsInReplay",
+    "GetCurrentGameState",
+    "GetLocalCar",
+    "Execute",
+    "SetTimeout",
+    "RegisterDrawable",
+    "UnregisterDrawables",
+    "HookEvent",
+    "HookEventWithCaller",
+    "UnhookEvent",
+    "GetDataFolder",
+    "Toast",
+    "GetCurrentMap"
+  ],
+  "bakkesmod/wrappers/cvarmanagerwrapper.h": [
+    "registerNotifier",
+    "registerCvar",
+    "getCvar",
+    "executeCommand",
+    "log",
+    "setBind"
+  ],
+  "bakkesmod/wrappers/GameEvent/ServerWrapper.h": [
+    "GetBall",
+    "GetGameCar",
+    "IsInGoal",
+    "GetGoalLocation",
+    "GetGoalExtent",
+    "GenerateShot",
+    "IsBallMovingTowardsGoal",
+    "DisableGoalReset",
+    "EnableGoalReset"
+  ],
+  "bakkesmod/wrappers/Engine/ActorWrapper.h": [
+    "GetLocation",
+    "SetLocation",
+    "GetVelocity",
+    "SetVelocity",
+    "SetAngularVelocity",
+    "GetRotation"
+  ],
+  "bakkesmod/wrappers/GameObject/CarWrapper.h": [
+    "SetCarRotation",
+    "HasFlip",
+    "IsDodging",
+    "GetInput",
+    "AnyWheelTouchingGround"
+  ],
+  "bakkesmod/wrappers/GameObject/VehicleWrapper.h": [
+    "IsOnGround",
+    "IsOnWall",
+    "GetbJumped",
+    "GetbDoubleJumped",
+    "GetBoostComponent"
+  ],
+  "bakkesmod/wrappers/GameObject/CarComponent/BoostWrapper.h": [
+    "GetCurrentBoostAmount",
+    "SetCurrentBoostAmount"
+  ],
+  "bakkesmod/wrappers/canvaswrapper.h": [
+    "DrawString",
+    "DrawBox",
+    "FillBox",
+    "SetPosition",
+    "SetColor",
+    "Project"
+  ]
+}
