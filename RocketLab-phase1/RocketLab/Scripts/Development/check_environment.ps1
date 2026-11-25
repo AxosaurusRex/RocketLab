@@ -12,13 +12,18 @@ function Get-ToolOutput($command, $arguments) {
     return (& $command $arguments 2>$null)
 }
 
-# Visual Studio 2022 with the C++ tools
+# Visual Studio 2022 (major 17) or 2026 (major 18) with the C++ tools
 $vsPath = $null
+$vsName = 'Visual Studio 2022 or 2026 C++ tools'
 $vswhere = Join-Path ${env:ProgramFiles(x86)} 'Microsoft Visual Studio\Installer\vswhere.exe'
 if (Test-Path $vswhere) {
-    $vsPath = & $vswhere -latest -products * -version '[17.0,18.0)' -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath
+    $vsQuery = @('-latest', '-products', '*', '-version', '[17.0,19.0)', '-requires', 'Microsoft.VisualStudio.Component.VC.Tools.x86.x64')
+    $vsPath = & $vswhere @vsQuery -property installationPath
+    $vsVersion = & $vswhere @vsQuery -property installationVersion
+    if ($vsVersion -match '^17\.') { $vsName = 'Visual Studio 2022 C++ tools' }
+    if ($vsVersion -match '^18\.') { $vsName = 'Visual Studio 2026 C++ tools' }
 }
-Report 'Visual Studio 2022 C++ tools' 2 ([bool]$vsPath) $vsPath
+Report $vsName 2 ([bool]$vsPath) $vsPath
 
 # CMake: on PATH, or the copy bundled with Visual Studio
 $cmake = (Get-Command cmake -ErrorAction SilentlyContinue).Source
